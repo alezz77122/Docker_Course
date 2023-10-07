@@ -42,7 +42,7 @@ client
 //mongoose.connect(URI).then(()=>console.log('connected to DB ...')).catch((err)=>console.log('falid to connected to DB ... ',err));
 app.get("/", (req, res) => {
   redisClint.set("product", "product...");
-  res.send("Hello, World!hi hi hi hi alezz in dev");
+  res.send("Hello, World! alezz in dev");
 });
 
 app.get("/data", async (req, res) => {
