@@ -1,10 +1,9 @@
 version: "3"
 services:
   node-app:
-    build: 
+    build:
       context: .
       target: production
     environment:
       - NODE_ENV=prodection
     command: npm start
-    

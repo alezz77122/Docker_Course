@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const redis = require("redis");
 const { Client } = require("pg");
+const os = require("os");
 //init app
 const PORT = process.env.PORT || 4000;
 const app = express();
@@ -42,6 +43,7 @@ client
 //mongoose.connect(URI).then(()=>console.log('connected to DB ...')).catch((err)=>console.log('falid to connected to DB ... ',err));
 app.get("/", (req, res) => {
   redisClint.set("product", "product...");
+  console.log(`traffic from ${os.hostname}`)
   res.send("Hello, World! alezz in dev");
 });
 

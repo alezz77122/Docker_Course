@@ -1,12 +1,21 @@
 version: "3"
 services:
   node-app:
-    container_name: express-node-app-container
+    #container_name: express-node-app-container I remove name of container bec.. load balancing
+    image: alezz77122/dockerfiles
     build: .
-    ports:
-      - "4000:4000"
+    # ports:
+    #   - "4000:4000" because load balancing using inginx forword traffic on port 8080 for all container
     env_file:
       - ./.env
+    deploy:
+      replicas: 4
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        delay: 5s
     depends_on:
       - postgres
       - redis
@@ -18,7 +27,7 @@ services:
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: example
-  
+
   #mongo:
   #  image: mongo
   #  restart: always
@@ -27,7 +36,6 @@ services:
   #  environment:
   #    MONGO_INITDB_ROOT_USERNAME: root
   #    MONGO_INITDB_ROOT_PASSWORD: example
-
 
   #mongo-express:
   #  image: mongo-express
@@ -47,14 +55,12 @@ services:
   nginx:
     image: nginx
     ports:
-     - "8080:80"
+      - "8080:80"
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - node-app
-  
+
 volumes:
   mongo-db:
   postgres-db:
-
-
