@@ -19,25 +19,25 @@ redisClint.connect();
 
 //connect to postgres DB
 
-const DB_USER = "root";
+//const DB_USER = "root";
 
-const DB_PASSWARD = "example";
-const DB_PORT = 5432;
-const DB_HOST = "postgres";
+//const DB_PASSWARD = "example";
+//const DB_PORT = 5432;
+//const DB_HOST = "postgres";
+//
+//const URI = `postgresgl://${DB_USER}:${DB_PASSWARD}@${DB_HOST}:${DB_PORT}`;
+//const client = new Client({
+//  connectionString: URI,
+//});
+//client
+//  .connect()
+//  .then(() => console.log("connected to postgres DB ..."))
+//  .catch((err) => console.log("falid to connected to postgres DB ... ", err));
 
-const URI = `postgresgl://${DB_USER}:${DB_PASSWARD}@${DB_HOST}:${DB_PORT}`;
-const client = new Client({
-  connectionString: URI,
-});
-client
-  .connect()
-  .then(() => console.log("connected to postgres DB ..."))
-  .catch((err) => console.log("falid to connected to postgres DB ... ", err));
-
-//const DB_USER= 'root';
-//const DB_PASSWARD= 'example';
-//const DB_PORT =27017;
-//const DB_HOST ='mongo'
+const DB_USER= 'root';
+const DB_PASSWARD= 'example';
+const DB_PORT =27017;
+const DB_HOST ='mongo'
 
 //const URI=`mongodb://${DB_USER}:${DB_PASSWARD}@${DB_HOST}:${DB_PORT}`
 //mongoose.connect(URI).then(()=>console.log('connected to DB ...')).catch((err)=>console.log('falid to connected to DB ... ',err));
