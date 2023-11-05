@@ -2,10 +2,10 @@ version: "3"
 services:
   node-app:
     container_name: express-node-app-container #I remove name of container bec.. load balancing
-    #image: alezz77122/dockerfiles
-     #build: .
+    image: alezz77122/dockerfiles
+    #build: .
     ports:
-       - "4000:4000" #because load balancing using inginx forword traffic on port 8080 for all container
+      - "4000:4000" #because load balancing using inginx forword traffic on port 8080 for all container
     env_file:
       - ./.env
     #deploy:

@@ -44,7 +44,7 @@ const DB_HOST ='mongo'
 app.get("/", (req, res) => {
   redisClint.set("product", "product...");
   console.log(`traffic from ${os.hostname}`)
-  res.send("Hello, World! alezz local server");
+  res.send("Hello, World! alezz local server using dockerhup");
 });
 
 app.get("/data", async (req, res) => {
